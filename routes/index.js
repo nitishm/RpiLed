@@ -9,28 +9,21 @@ var pin = 0;
 var status = 0;
 
 module.exports = router;
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.sendfile('app/index.html');
-});
-
-router.get('/led', function(req, res, next) {
-	res.send(JSON.stringify({ 'led': status }));
-});
-
-router.post('/led',function(req,res){
-	wpi.pinMode(pin, wpi.OUTPUT);	
-	status = req.body.status;
-	wpi.digitalWrite(pin, parseInt(status));
-	res.send(JSON.stringify({ 'led': status }));
-});
 
 // PWM
-router.post('/led/pwm',function(req,res){
-	wpi.softPwmCreate(pin, 0, 100);
-	pwm = req.body.pwm;
-  wpi.softPwmWrite(pin, parseInt(pwm));
-	res.send(JSON.stringify({ 'pwmVal': pwm }));
+router.post('/led',function(req,res){
+	pin = req.body.pin;
+	id = parseInt(pin.id);
+	if(pin.mode === 'output'){
+		console.log("output");
+		wpi.pinMode(id, wpi.OUTPUT);
+		wpi.digitalWrite(id, parseInt(pin.status));
+	} else {
+		console.log("pwm");
+		wpi.softPwmCreate(id, 0, 100);
+		wpi.softPwmWrite(id, parseInt(pin.pwm));
+	}
+	res.send(JSON.stringify({ 'pin': pin }));;
 });
 
 module.exports = router;
