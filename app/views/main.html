@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-lg-5">
+    <label for="toggle"><h2>Toggle : <span class="label" ng-class="(led || pwmVal)?'label-success':'label-danger'">GPIO 0</span>
+</h2></label>
+    <div class="row" id="toggle">
+        <button type="button" class="btn btn-success btn-block" ng-click="toggleLed(1)">On</button>
+        <button type="button" class="btn btn-danger btn-block col-lg-6" ng-click="toggleLed(0)">Off</button>
+    </div>
+  </div>
+  <span class="col-lg-2"></span>
+  <div class="col-lg-5">
+    <label for="pwm"><h2>Pwm : <span class="label label-primary">{{pwmVal}}%</span></h2></label>
+    <div class="row" id="pwm">
+      <button type="button" class="btn btn-default btn-block" ng-click="pwmUpdate(val)" ng-repeat="val in pwmValues">{{val}}%</button>
+    </div>
+  </div>
+</div>
