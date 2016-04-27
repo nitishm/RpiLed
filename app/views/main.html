@@ -1,9 +1,16 @@
+<div class="jumbotron">
+  <div class="container">
+    <img src="images/Raspberry_Pi.png" class="img-responsive" alt="Image" height="80" width="80" style="display:block;margin:auto;">
+    <h2>Raspberry Pi GPIO</h2>
+    <h3><span class="label" ng-class="(pin.status)?'label-success':'label-danger'">GPIO {{pin.id}}</span></h3>
+  </div>
+</div>
 <div class="row">
   <div class="form-group col-sm-6">
     <label for="input" class="control-label">GPIO Pin Number :</label>
     <div>
       <select name="" id="input" class="form-control" ng-model="pin.id" required="required">
-        <option value="{{value}}" ng-repeat="value in gpioPins">{{value}}</option>
+        <option value="{{id}}" ng-repeat="id in gpioPins">{{id}}</option>
       </select>
     </div>
   </div>
@@ -16,21 +23,53 @@
     </div>
   </div>
 </div>
+<br/>
 <div class="row" ng-if="pin.mode && pin.id">
-  <div class="col-lg-6" ng-hide="pin.mode === 'pwm'">
+  <span class="col-lg-3" ng-if="pin.mode === 'output'"></span>
+  <div class="col-lg-6" ng-if="pin.mode === 'output'">
     <label for="toggle">
-      <h4>Toggle : <span class="label" ng-class="(led || pin.pwm)?'label-success':'label-danger'">GPIO {{pin.id}}</span>
-      </h4>
+      <h3>Toggle : <span class="label" ng-class="(pin.status)?'label-success':'label-danger'">GPIO {{pin.id}}</span>
+      </h3>
     </label>
     <div class="row" id="toggle">
       <button type="button" class="btn btn-success btn-block" ng-click="toggleLed(1)">On</button>
       <button type="button" class="btn btn-danger btn-block" ng-click="toggleLed(0)">Off</button>
     </div>
   </div>
-  <div class="col-lg-6" ng-hide="pin.mode === 'output'">
-    <label for="pwm"><h4>Pwm : <span class="label" ng-class="(led || pin.pwm)?'label-success':'label-danger'">GPIO {{pin.id}}</span> <span class="label label-primary">{{pin.pwm}}%</span></h4></label>
+  <span class="col-lg-3" ng-if="pin.mode === 'pwm'"></span>
+  <div class="col-lg-6" ng-if="pin.mode === 'pwm'">
+    <label for="pwm"><h3>Pwm : <span class="label" ng-class="(pin.status)?'label-success':'label-danger'">GPIO {{pin.id}}</span> <span class="label label-primary">{{pin.pwm}}%</span></h3></label>
     <div class="row" id="pwm">
       <input id="slider1" type="range" min="0" max="100" step="5" ng-model="pin.pwm" ng-click="update()"/>
     </div>
   </div>
+</div>
+<hr/>
+
+<hr/>
+<h3>Music Player : </h3>
+<hr/>
+<h4>
+  <button type="button" class="btn btn-sm btn-danger" ng-click="stopSong()">Stop</button> -
+  <button type="button" class="btn btn-sm btn-info" ng-click="pauseSong()">Pause</button> -
+  <button type="button" class="btn btn-sm btn-primary" ng-click="volUpSong()">Vol Up</button> -
+  <button type="button" class="btn btn-sm btn-danger" ng-click="volDnSong()">Vol Dn</button>
+</h4>
+<hr/>
+<div class="row">
+  <label for="player" ng-show="isPlaying"> [ Now Playing : <em>{{currentSong}}</em> ]</label>
+</div>
+<div class="row" id="player">
+  <a class="btn btn-default btn-sm btn-block" href="#/" role="button" ng-click=playSong(song) ng-repeat="song in songs">{{song}}</a>
+</div>
+<hr/>
+
+<div class="hidden-xs">
+  <hr/>
+  <h3>Terminal Emulater - TTY</h3>
+  <hr/>
+  <div class="row">
+      <iframe src="http://10.0.0.223:8000/" width="750" height="400"></iframe>
+  </div>
+  <br/>
 </div>

@@ -147,6 +147,8 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
 }
+
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -168,4 +170,11 @@ input[type=range]:focus::-ms-fill-upper {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+@media screen and (max-width: 767px) {
+    .hidden-xs {
+        display:none;
+    }
+}
 }

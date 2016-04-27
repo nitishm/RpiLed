@@ -15,7 +15,9 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'angularSpinner',
+    'btford.socket-io'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -32,4 +34,31 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .factory('socket', function (socketFactory) {
+      var socket = socketFactory();
+      return socket;
   });
+  // .factory('socket', function ($rootScope) {
+  //   var socket = io.connect();
+  //   return {
+  //     on: function (eventName, callback) {
+  //       socket.on(eventName, function () {  
+  //         var args = arguments;
+  //         $rootScope.$apply(function () {
+  //           callback.apply(socket, args);
+  //         });
+  //       });
+  //     },
+  //     emit: function (eventName, data, callback) {
+  //       socket.emit(eventName, data, function () {
+  //         var args = arguments;
+  //         $rootScope.$apply(function () {
+  //           if (callback) {
+  //             callback.apply(socket, args);
+  //           }
+  //         });
+  //       })
+  //     }
+  //   };
+  // });
