@@ -1,11 +1,21 @@
 <div class="jumbotron">
   <div class="container">
-    <img src="images/Raspberry_Pi.png" class="img-responsive" alt="Image" height="80" width="80" style="display:block;margin:auto;">
-    <h2>Raspberry Pi GPIO</h2>
-    <h3><span class="label" ng-class="(pin.status)?'label-success':'label-danger'">GPIO {{pin.id}}</span></h3>
+    <img src="images/Raspberry_Pi.png" class="img-responsive" alt="Image" height="100" width="100" style="display:block;margin:auto;">
+    <h2><span class="glyphicon glyphicon-music" aria-hidden="true"></span> RasPlayer <span class="glyphicon glyphicon-music" aria-hidden="true"></span></h2>
+    <h3 class="lead" ng-show="isPlaying"> [ Now Playing : <em>{{currentSong}}</em> ]</h3>
+    <h3 class="lead">Volume {{volume}}</h3>
+    <div ng-show="isPlaying">
+      <div class="btn-group">
+        <button type="button" class="btn btn-lg btn-danger" ng-click="stopSong()"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span></button>
+        <button type="button" class="btn btn-lg btn-info" ng-click="volDnSong()"><span class="glyphicon glyphicon-volume-down" aria-hidden="true"></span></button>
+        <button type="button" class="btn btn-lg btn-primary" ng-click="volUpSong()"><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span></button>
+      </div>
+    </div>
+    <!--     <h3><span class="label" ng-class="(pin.status)?'label-success':'label-danger'">GPIO {{pin.id}}</span></h3>
+  -->  
   </div>
 </div>
-<div class="row">
+<!-- <div class="row">
   <div class="form-group col-sm-6">
     <label for="input" class="control-label">GPIO Pin Number :</label>
     <div>
@@ -44,32 +54,25 @@
     </div>
   </div>
 </div>
-<hr/>
-
-<hr/>
-<h3>Music Player : </h3>
-<hr/>
-<h4>
-  <button type="button" class="btn btn-sm btn-danger" ng-click="stopSong()">Stop</button> -
-  <button type="button" class="btn btn-sm btn-info" ng-click="pauseSong()">Pause</button> -
-  <button type="button" class="btn btn-sm btn-primary" ng-click="volUpSong()">Vol Up</button> -
-  <button type="button" class="btn btn-sm btn-danger" ng-click="volDnSong()">Vol Dn</button>
-</h4>
-<hr/>
-<div class="row">
-  <label for="player" ng-show="isPlaying"> [ Now Playing : <em>{{currentSong}}</em> ]</label>
+<hr/> -->
+<!-- <div class="row" id="fm" style="margin: 20px;padding-left: 20px;padding-right: 20px;">
+    <h3>FM</h3>
+    <button class="btn btn-md btn-block" ng-class="(fmPlaying) ? 'btn-primary' : 'btn-default'" ng-click=playSong('fm.dubai') style="white-space: normal;">Dubai FM</button>
+    <button class="btn btn-md btn-block" ng-class="(fmPlaying) ? 'btn-primary' : 'btn-default'" ng-click=playSong('fm.hungama') style="white-space: normal;">Hungama FM</button>
+</div> -->
+<div class="row" id="player" style="margin: 20px;padding-left: 20px;padding-right: 20px;">
+  <h3 ng-show="loading">Loading playlist ... </h3>
+  <h3 ng-hide="loading">FM</h3>
+  <button class="btn btn-md btn-block" ng-class="(currentFm == fm) ? 'btn-primary' : 'btn-default'" ng-click=playSong(fm) ng-repeat="fm in fms | lowercase" style="white-space: normal;">{{fm}}</button>  
+  <h3 ng-hide="loading">Songs</h3>
+  <button class="btn btn-md btn-block" ng-class="(currentSong == song) ? 'btn-primary' : 'btn-default'" ng-click=playSong(song) ng-repeat="song in songs | lowercase" style="white-space: normal;">{{song}}</button>
 </div>
-<div class="row" id="player">
-  <a class="btn btn-default btn-sm btn-block" href="#/" role="button" ng-click=playSong(song) ng-repeat="song in songs">{{song}}</a>
-</div>
-<hr/>
-
 <div class="hidden-xs">
   <hr/>
   <h3>Terminal Emulater - TTY</h3>
   <hr/>
   <div class="row">
-      <iframe src="http://10.0.0.223:8000/" width="750" height="400"></iframe>
+    <iframe src="http://10.0.0.223:8000/" width="750" height="400"></iframe>
   </div>
   <br/>
 </div>

@@ -1,106 +1,118 @@
 module.exports = function(io) {
-	var express = require('express');
-	var router = express.Router();
+    var express = require('express');
+    var router = express.Router();
+    var MPlayer = require('mplayer');
+    var _ = require('underscore');
+    var path = require('path');
+    var fs = require('fs');
 
-	var wpi = require('wiring-pi');
-	wpi.setup('wpi');
+    var getMp3 = function(file) {
+        return (path.extname(file) === '.mp3')
+    };
+    var getPls = function(file) {
+        return (path.extname(file) === '.pls')
+    };
+    var currentSong = null;
+    var currentFm = null;
 
-	var omx = require('omxdirector');
-	var fs = require('fs');
+    var player = new MPlayer({
+        verbose: false,
+        debug: false
+    });
 
-	var pin = 0; 
+    io.on('connection', function(socket) {
+        console.log('a user connected @ ' + socket.id);
+        fs.readdir('./songs/', function(err, files) {
+            if (err) console.error(err);
+            mp3Files = _.filter(files, getMp3);
+            plsFiles = _.filter(files, getPls);
+            io.sockets.emit('song:stats', {
+                mp3: mp3Files,
+                pls: plsFiles,
+                playing: currentSong,
+                fm: currentFm
+            });
+        });
 
-	var status = 0;
-	var currentSong = "";
-	omx.setVideoDir('/home/pi/webapp/songs');
-	io.on('connection', function(socket){
-	  console.log('a user connected');
-		fs.readdir('./songs/', function (err, files) {
-		  if (err) console.error(err);
-  	  socket.emit('songs', {files : files});
-		});
+        ////// Emit status of player on events
+        player.on('status', function(data) {
+            socket.emit('player:status', {
+                status: data
+            });
+            if (data.title) currentSong = data.title;
+        });
 
-	  socket.on('song:status', function(data,fn) {
-	  	fs.readdir('./songs/', function (err, files) {
-		  	if (err) console.error(err);
-	  		fn({files:files, status:omx.getStatus()});
-	  	});
-	  });
+        ////// Play provided track
+        socket.on('song:play', function(data) {
+            currentSong = null;
+            player.volume(data.volume);
+            file = '/home/pi/webapp/songs/' + data.song;
+            if (path.extname(file) === '.pls') {
+                player.openPlaylist(file, {
+                    cache: 128,
+                    cacheMin: 1
+                });
+                currentFm = data.song;
+            } else {
+                player.openFile(file);
+                currentSong = data.song;
+                currentFm = null;
+            }
+        });
 
-	  socket.on('song:play', function(data,fn) {
-	  	if(omx.isLoaded()) { 
-	  		if(!omx.isPlaying()) {
-	  			if(data.song === currentSong) {
-	  				omx.play();
-	  			} else {
-	  				omx.stop();
-						omx.play(data.song, {audioOutput: 'local'});
-						currentSong = data.song;
-	  			}
-	  		} else {
-  				omx.stop();
-					omx.play(data.song, {audioOutput: 'local'});
-					currentSong = data.song;
-	  		}
-	  	} else {
-				omx.play(data.song, {audioOutput: 'local'});
-				currentSong = data.song;
-			}
-			fn(data);
-	  });
+        ////// Stop playing current track
+        socket.on('song:stop', function(data) {
+            player.stop();
+            currentSong = null;
+            currentFm = null;
+        });
 
-	  socket.on('song:stop', function(data) {
-			omx.stop();
-	  });
+        ////// Volume control
+        socket.on('song:vol', function(data, fn) {
+            if (data.volume < 0) data.volume = 0;
+            if (data.volume > 100) data.volume = 100;
+            player.volume(data.volume);
+            fn(data);
+        });
 
-	  socket.on('song:pause', function(data) {
-	  	console.log("Pausing");
-			omx.pause();
-	  });
+        socket.on('disconnect', function() {
+            console.log('User disconnected @ ' + socket.id);
+        });
 
-	  socket.on('vol:up', function(data) {
-			omx.volup();
-	  });
+        ////// Send list of files
+        setInterval(function() {
+            fs.readdir('./songs/', function(err, files) {
+                if (err) console.error(err);
+                mp3Files = _.filter(files, getMp3);
+                plsFiles = _.filter(files, getPls);
+                io.sockets.emit('song:stats', {
+                    mp3: mp3Files,
+                    pls: plsFiles,
+                    playing: currentSong,
+                    fm: currentFm
+                });
+            });
+        }, 3000);
+    });
 
-	  socket.on('vol:down', function(data) {
-			omx.voldown();
-	  });
+    // var wpi = require('wiring-pi');
+    // wpi.setup('wpi');
+    // var omx = require('omxdirector');	
+    // var pin = 0; 
+    // var status = 0;
+    // PWM
+    // router.post('/led',function(req,res){
+    // 	pin = req.body.pin;
+    // 	id = parseInt(pin.id);
+    // 	if(pin.mode === 'output'){
+    // 		// wpi.pinMode(id, wpi.OUTPUT);
+    // 		// wpi.digitalWrite(id, parseInt(pin.status));
+    // 	} else {
+    // 		// wpi.softPwmCreate(id, 0, 100);
+    // 		// wpi.softPwmWrite(id, parseInt(pin.pwm));
+    // 	}
+    // 	res.send(JSON.stringify({ 'pin': pin }));;
+    // });
 
-	});	
-
-	// PWM
-	router.post('/led',function(req,res){
-		pin = req.body.pin;
-		id = parseInt(pin.id);
-		if(pin.mode === 'output'){
-			wpi.pinMode(id, wpi.OUTPUT);
-			wpi.digitalWrite(id, parseInt(pin.status));
-		} else {
-			wpi.softPwmCreate(id, 0, 100);
-			wpi.softPwmWrite(id, parseInt(pin.pwm));
-		}
-		res.send(JSON.stringify({ 'pin': pin }));;
-	});
-
-	router.get('/songs', function(req, res, next) {
-		// omx.play('example.mp3', {audioOutput: 'local'});
-		fs.readdir('./songs/', function (err, files) {
-		  if (err) return console.error(err);
-		  res.send(files);
-		});
-	});
-
-	router.get('/songs/:action/:song', function(req, res, next) {
-		omx.stop();
-		if(req.params.action === 'stop') {
-			omx.stop();
-		}
-		else if(req.params.action === 'play') {
-			setTimeout(function() {
-				omx.play(req.params.song, {audioOutput: 'local'});
-			}, 1000);
-		}
-		res.send(JSON.stringify({song: req.params.song}));
-	});
-	return router;
+    return router;
 }

@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'angularSpinner',
-    'btford.socket-io'
+    'btford.socket-io',
+    'ui.sortable'
   ])
   .config(function ($routeProvider) {
     $routeProvider
