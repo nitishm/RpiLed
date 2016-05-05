@@ -150,11 +150,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
+@media screen and (min-width: 1000px) {
   /* Remove the padding we set earlier */
   .header,
   .marketing,
@@ -172,7 +168,7 @@ input[type=range]:focus::-ms-fill-upper {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1000px) {
     .hidden-xs {
         display:none;
     }

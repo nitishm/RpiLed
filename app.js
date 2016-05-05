@@ -9,12 +9,11 @@ var terminal = require("web-terminal");
 var tty = require('tty.js');
 var socket_io = require('socket.io');
 
-var users = require('./routes/users');
-
 var app = express();
 
 var io = socket_io();
-var routes = require('./routes/index')(io);
+// var routes = require('./routes/socket/newplayer')(io);
+var routes = require('./routes/socket/mpgPlayer')(io);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,7 +30,6 @@ app.use(express.static(path.join(__dirname, 'app')));
 app.use(cors());
 
 app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

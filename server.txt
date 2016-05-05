@@ -1,130 +1,241 @@
-[33m[nodemon] 1.9.1[39m
+[33m[nodemon] 1.9.2[39m
 [33m[nodemon] to restart at any time, enter `rs`[39m
 [33m[nodemon] watching: *.*[39m
 [32m[nodemon] starting `node app.js`[39m
 Web-Terminal running at http://localhost:8088/terminal
 [tty.js] Listening on port 8000.
-a user connected @ /#cRSHwO2ghFWzV9u6AAAA
-a user connected @ /#7GF8uCN_iKZ8dH9UAAAB
-[tty.js] pi Session pi created.
-[tty.js] pi Session pi created.
-User disconnected @ /#7GF8uCN_iKZ8dH9UAAAB
-[tty.js] pi Client disconnected.
-[tty.js] pi Killing all pty's.
-User disconnected @ /#cRSHwO2ghFWzV9u6AAAA
-[tty.js] pi Client disconnected.
-[tty.js] pi Killing all pty's.
-[tty.js] pi Session pi created.
-a user connected @ /#qV5g_1pQVOQIViUpAAAC
-[tty.js] pi Client disconnected.
-[tty.js] pi Killing all pty's.
-User disconnected @ /#qV5g_1pQVOQIViUpAAAC
-[tty.js] pi Session pi created.
-a user connected @ /#LPdEYFx50Yjw4wymAAAD
-[tty.js] pi Client disconnected.
-[tty.js] pi Killing all pty's.
-User disconnected @ /#LPdEYFx50Yjw4wymAAAD
-[tty.js] pi Session pi created.
-a user connected @ /#0pspiF83ndq6grdAAAAE
-[tty.js] pi Client disconnected.
-[tty.js] pi Killing all pty's.
-User disconnected @ /#0pspiF83ndq6grdAAAAE
-[tty.js] pi Session pi created.
-a user connected @ /#-g_7RL-4PoqflLRYAAAF
-[tty.js] pi Client disconnected.
-[tty.js] pi Killing all pty's.
-User disconnected @ /#-g_7RL-4PoqflLRYAAAF
-[tty.js] pi Session pi created.
-a user connected @ /#6nR1rOj_XfhCKHWDAAAG
-[tty.js] pi Client disconnected.
-[tty.js] pi Killing all pty's.
-User disconnected @ /#6nR1rOj_XfhCKHWDAAAG
-[0mGET / [32m200 [0m48.259 ms - 3870[0m
-[0mGET /styles/main.css [36m304 [0m9.098 ms - -[0m
-[0mGET /bower_components/bootstrap/dist/css/bootstrap.css [32m200 [0m14.000 ms - 146082[0m
-[0mGET / [36m304 [0m4.040 ms - -[0m
-[0mGET /bower_components/jquery/dist/jquery.js [36m304 [0m15.919 ms - -[0m
-[0mGET /bower_components/angular/angular.js [36m304 [0m15.490 ms - -[0m
-[0mGET /bower_components/bootstrap/dist/css/bootstrap.css [36m304 [0m15.541 ms - -[0m
-[0mGET /bower_components/bootstrap/dist/js/bootstrap.js [36m304 [0m14.354 ms - -[0m
-[0mGET /styles/main.css [36m304 [0m14.782 ms - -[0m
-[0mGET /bower_components/angular-animate/angular-animate.js [36m304 [0m14.520 ms - -[0m
-[0mGET /bower_components/angular-route/angular-route.js [36m304 [0m23.860 ms - -[0m
-[0mGET /bower_components/angular-resource/angular-resource.js [36m304 [0m22.529 ms - -[0m
-[0mGET /bower_components/angular-cookies/angular-cookies.js [36m304 [0m18.947 ms - -[0m
-[0mGET /bower_components/angular-sanitize/angular-sanitize.js [36m304 [0m22.149 ms - -[0m
-[0mGET /bower_components/angular-touch/angular-touch.js [36m304 [0m14.247 ms - -[0m
-[0mGET /bower_components/spin.js/spin.js [36m304 [0m11.973 ms - -[0m
-[0mGET /bower_components/angular-slider/build/angular-slider.js [36m304 [0m11.531 ms - -[0m
-[0mGET /bower_components/angular-spinner/angular-spinner.js [36m304 [0m11.634 ms - -[0m
-[0mGET /bower_components/angular-socket-io/socket.js [36m304 [0m14.182 ms - -[0m
-[0mGET /bower_components/underscore/underscore.js [36m304 [0m1.368 ms - -[0m
-[0mGET /bower_components/jquery-ui/jquery-ui.js [36m304 [0m2.840 ms - -[0m
-[0mGET /bower_components/angular-ui-sortable/sortable.js [36m304 [0m3.008 ms - -[0m
-[0mGET /scripts/app.js [36m304 [0m4.523 ms - -[0m
-[0mGET /scripts/controllers/main.js [36m304 [0m4.134 ms - -[0m
-[0mGET /scripts/controllers/about.js [36m304 [0m4.188 ms - -[0m
-[0mGET /views/main.html [36m304 [0m1.904 ms - -[0m
-a user connected @ /#d8z4UItDTCbBqNqVAAAH
-[0mGET /bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 [36m304 [0m3.420 ms - -[0m
-[0mGET /images/Raspberry_Pi.png [36m304 [0m3.601 ms - -[0m
-[0mGET /favicon.ico [32m200 [0m4.194 ms - 1150[0m
-[tty.js] pi Session pi created.
-[tty.js] pi Client disconnected.
-[tty.js] pi Killing all pty's.
-User disconnected @ /#d8z4UItDTCbBqNqVAAAH
-a user connected @ /#0pyvCqU9wjtc5nS3AAAI
-[tty.js] pi Session pi created.
-[tty.js] pi Client disconnected.
-[tty.js] pi Killing all pty's.
-[tty.js] pi Session pi created.
-User disconnected @ /#0pyvCqU9wjtc5nS3AAAI
-a user connected @ /#dbDQOUcHkEZgq4DGAAAJ
-[0mGET / [36m304 [0m8.549 ms - -[0m
-[tty.js] pi Client disconnected.
-[tty.js] pi Killing all pty's.
-User disconnected @ /#dbDQOUcHkEZgq4DGAAAJ
-[0mGET /bower_components/bootstrap/dist/css/bootstrap.css [36m304 [0m4.480 ms - -[0m
-[0mGET /styles/main.css [36m304 [0m16.200 ms - -[0m
-[0mGET /bower_components/jquery/dist/jquery.js [36m304 [0m17.088 ms - -[0m
-[0mGET /bower_components/angular/angular.js [36m304 [0m16.992 ms - -[0m
-[0mGET /bower_components/bootstrap/dist/js/bootstrap.js [36m304 [0m16.567 ms - -[0m
-[0mGET /bower_components/angular-animate/angular-animate.js [36m304 [0m15.081 ms - -[0m
-[0mGET /bower_components/angular-cookies/angular-cookies.js [36m304 [0m15.013 ms - -[0m
-[0mGET /bower_components/angular-sanitize/angular-sanitize.js [36m304 [0m13.631 ms - -[0m
-[0mGET /bower_components/angular-resource/angular-resource.js [36m304 [0m13.228 ms - -[0m
-[0mGET /bower_components/angular-route/angular-route.js [36m304 [0m12.604 ms - -[0m
-[0mGET /bower_components/angular-touch/angular-touch.js [36m304 [0m13.066 ms - -[0m
-[0mGET /bower_components/angular-slider/build/angular-slider.js [36m304 [0m10.816 ms - -[0m
-[0mGET /bower_components/spin.js/spin.js [36m304 [0m1.236 ms - -[0m
-[0mGET /bower_components/angular-socket-io/socket.js [36m304 [0m6.788 ms - -[0m
-[0mGET /bower_components/angular-spinner/angular-spinner.js [36m304 [0m6.567 ms - -[0m
-[0mGET /bower_components/underscore/underscore.js [36m304 [0m6.444 ms - -[0m
-[0mGET /bower_components/jquery-ui/jquery-ui.js [36m304 [0m6.366 ms - -[0m
-[0mGET /bower_components/angular-ui-sortable/sortable.js [36m304 [0m6.346 ms - -[0m
-[0mGET /scripts/app.js [36m304 [0m4.010 ms - -[0m
-[0mGET /scripts/controllers/main.js [36m304 [0m4.965 ms - -[0m
-[0mGET /scripts/controllers/about.js [36m304 [0m4.965 ms - -[0m
-[0mGET /views/main.html [36m304 [0m1.246 ms - -[0m
-a user connected @ /#3j_ep7LCqGylz5goAAAK
-[0mGET /bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 [36m304 [0m3.101 ms - -[0m
-[0mGET /images/Raspberry_Pi.png [36m304 [0m2.941 ms - -[0m
-[0mGET /favicon.ico [32m200 [0m3.677 ms - 1150[0m
-[tty.js] pi Session pi created.
-[tty.js] pi Created pty (id: /dev/pts/0, master: 17, pid: 7522).
-[tty.js] pi Closed pty (/dev/pts/0): 17.
+a user connected @ /#87vUROtEAFBoTKFMAAAA
+[0mGET / [32m200 [0m60.210 ms - 3853[0m
+[0mGET /bower_components/bootstrap/dist/css/bootstrap.css [36m304 [0m13.533 ms - -[0m
+[0mGET /styles/main.css [36m304 [0m37.043 ms - -[0m
+[0mGET /bower_components/angular-cookies/angular-cookies.min.js [36m304 [0m38.049 ms - -[0m
+[0mGET /bower_components/angular-resource/angular-resource.min.js [36m304 [0m35.446 ms - -[0m
+[0mGET /bower_components/angular-route/angular-route.min.js [36m304 [0m35.010 ms - -[0m
+[0mGET /bower_components/angular-sanitize/angular-sanitize.min.js [36m304 [0m35.774 ms - -[0m
+[0mGET /bower_components/angular-touch/angular-touch.min.js [36m304 [0m37.966 ms - -[0m
+[0mGET /bower_components/angular-slider/build/angular-slider.min.js [36m304 [0m42.551 ms - -[0m
+[0mGET /bower_components/spin.js/spin.min.js [36m304 [0m43.337 ms - -[0m
+[0mGET /bower_components/angular/angular.min.js [36m304 [0m45.912 ms - -[0m
+[0mGET /bower_components/angular-spinner/angular-spinner.min.js [36m304 [0m46.359 ms - -[0m
+[0mGET /bower_components/angular-socket-io/socket.min.js [36m304 [0m47.134 ms - -[0m
+[0mGET /bower_components/angular-ui-sortable/sortable.min.js [36m304 [0m47.626 ms - -[0m
+[0mGET /bower_components/jquery/dist/jquery.min.js [36m304 [0m44.376 ms - -[0m
+[0mGET /bower_components/underscore/underscore.js [36m304 [0m39.933 ms - -[0m
+[0mGET /bower_components/jquery-ui/jquery-ui.min.js [36m304 [0m41.754 ms - -[0m
+[0mGET /bower_components/angular-animate/angular-animate.min.js [36m304 [0m7.838 ms - -[0m
+[0mGET /scripts/app.js [36m304 [0m6.846 ms - -[0m
+[0mGET /scripts/controllers/main.js [36m304 [0m6.817 ms - -[0m
+[0mGET /bower_components/bootstrap/dist/js/bootstrap.min.js [36m304 [0m7.430 ms - -[0m
+[0mGET /views/main.html [32m200 [0m6.577 ms - 5692[0m
+[0mGET /images/Raspberry_Pi.png [36m304 [0m1.434 ms - -[0m
+a user connected @ /#8itw4XSOUCZSRLV5AAAB
+[0mGET /bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff [36m304 [0m3.468 ms - -[0m
+User disconnected @ /#8itw4XSOUCZSRLV5AAAB
+a user connected @ /#veA7-hjSo97FXViUAAAC
+User disconnected @ /#87vUROtEAFBoTKFMAAAA
+User disconnected @ /#veA7-hjSo97FXViUAAAC
+a user connected @ /#6n6bMZKL_rPKYw8qAAAD
+[0mGET / [36m304 [0m39.052 ms - -[0m
+[0mGET /bower_components/bootstrap/dist/css/bootstrap.css [36m304 [0m12.126 ms - -[0m
+[0mGET /styles/main.css [36m304 [0m11.368 ms - -[0m
+[0mGET /bower_components/jquery/dist/jquery.min.js [36m304 [0m11.088 ms - -[0m
+[0mGET /bower_components/angular/angular.min.js [36m304 [0m11.147 ms - -[0m
+[0mGET /bower_components/bootstrap/dist/js/bootstrap.min.js [36m304 [0m11.521 ms - -[0m
+[0mGET /bower_components/angular-cookies/angular-cookies.min.js [36m304 [0m4.556 ms - -[0m
+[0mGET /bower_components/angular-animate/angular-animate.min.js [36m304 [0m3.757 ms - -[0m
+[0mGET /bower_components/angular-resource/angular-resource.min.js [36m304 [0m8.761 ms - -[0m
+[0mGET /bower_components/angular-route/angular-route.min.js [36m304 [0m6.239 ms - -[0m
+[0mGET /bower_components/angular-sanitize/angular-sanitize.min.js [36m304 [0m5.560 ms - -[0m
+[0mGET /bower_components/angular-touch/angular-touch.min.js [36m304 [0m5.474 ms - -[0m
+[0mGET /bower_components/angular-slider/build/angular-slider.min.js [36m304 [0m3.018 ms - -[0m
+[0mGET /bower_components/spin.js/spin.min.js [36m304 [0m2.649 ms - -[0m
+[0mGET /bower_components/angular-spinner/angular-spinner.min.js [36m304 [0m8.591 ms - -[0m
+[0mGET /bower_components/angular-socket-io/socket.min.js [36m304 [0m9.934 ms - -[0m
+[0mGET /bower_components/underscore/underscore.js [36m304 [0m10.011 ms - -[0m
+[0mGET /bower_components/jquery-ui/jquery-ui.min.js [36m304 [0m9.602 ms - -[0m
+[0mGET /bower_components/angular-ui-sortable/sortable.min.js [36m304 [0m9.406 ms - -[0m
+[0mGET /scripts/app.js [36m304 [0m3.972 ms - -[0m
+[0mGET /scripts/controllers/main.js [36m304 [0m5.226 ms - -[0m
+[0mGET /views/main.html [36m304 [0m1.579 ms - -[0m
+[0mGET /images/Raspberry_Pi.png [36m304 [0m2.335 ms - -[0m
+a user connected @ /#j3PDVzt62fHV6fFVAAAE
+[0mGET /bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 [36m304 [0m1.668 ms - -[0m
+[0mGET /favicon.ico [32m200 [0m16.566 ms - 1150[0m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node app.js`[39m
 Web-Terminal running at http://localhost:8088/terminal
 [tty.js] Listening on port 8000.
-[tty.js] pi Session pi created.
-a user connected @ /#qVY6jqAwI-7fm8MfAAAA
+a user connected @ /#DLMsyITkwcTgAlLqAAAA
+[0mGET / [36m304 [0m25.980 ms - -[0m
+User disconnected @ /#DLMsyITkwcTgAlLqAAAA
+[0mGET /bower_components/bootstrap/dist/css/bootstrap.css [36m304 [0m18.192 ms - -[0m
+[0mGET /styles/main.css [36m304 [0m18.360 ms - -[0m
+[0mGET /bower_components/jquery/dist/jquery.min.js [36m304 [0m18.441 ms - -[0m
+[0mGET /bower_components/angular/angular.min.js [36m304 [0m17.684 ms - -[0m
+[0mGET /bower_components/bootstrap/dist/js/bootstrap.min.js [36m304 [0m17.852 ms - -[0m
+[0mGET /bower_components/angular-animate/angular-animate.min.js [36m304 [0m17.630 ms - -[0m
+[0mGET /bower_components/angular-cookies/angular-cookies.min.js [36m304 [0m2.149 ms - -[0m
+[0mGET /bower_components/angular-resource/angular-resource.min.js [36m304 [0m5.241 ms - -[0m
+[0mGET /bower_components/angular-route/angular-route.min.js [36m304 [0m6.592 ms - -[0m
+[0mGET /bower_components/angular-sanitize/angular-sanitize.min.js [36m304 [0m10.342 ms - -[0m
+[0mGET /bower_components/angular-touch/angular-touch.min.js [36m304 [0m10.439 ms - -[0m
+[0mGET /bower_components/angular-slider/build/angular-slider.min.js [36m304 [0m16.336 ms - -[0m
+[0mGET /bower_components/spin.js/spin.min.js [36m304 [0m17.033 ms - -[0m
+[0mGET /bower_components/angular-spinner/angular-spinner.min.js [36m304 [0m3.588 ms - -[0m
+[0mGET /bower_components/angular-socket-io/socket.min.js [36m304 [0m6.354 ms - -[0m
+[0mGET /bower_components/underscore/underscore.js [36m304 [0m6.056 ms - -[0m
+[0mGET /bower_components/jquery-ui/jquery-ui.min.js [36m304 [0m5.519 ms - -[0m
+[0mGET /bower_components/angular-ui-sortable/sortable.min.js [36m304 [0m3.125 ms - -[0m
+[0mGET /scripts/app.js [36m304 [0m9.977 ms - -[0m
+[0mGET /scripts/controllers/main.js [36m304 [0m8.536 ms - -[0m
+[0mGET /views/main.html [36m304 [0m2.407 ms - -[0m
+[0mGET /images/Raspberry_Pi.png [36m304 [0m1.350 ms - -[0m
+a user connected @ /#hY5xd49WhgwN72DRAAAB
+[0mGET /bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 [36m304 [0m1.538 ms - -[0m
+[0mGET /favicon.ico [32m200 [0m12.190 ms - 1150[0m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node app.js`[39m
+Web-Terminal running at http://localhost:8088/terminal
+[tty.js] Listening on port 8000.
+[0mGET / [36m304 [0m31.736 ms - -[0m
+[0mGET /bower_components/bootstrap/dist/css/bootstrap.css [36m304 [0m15.844 ms - -[0m
+[0mGET /styles/main.css [36m304 [0m16.366 ms - -[0m
+[0mGET /bower_components/bootstrap/dist/js/bootstrap.min.js [36m304 [0m18.101 ms - -[0m
+[0mGET /bower_components/angular-animate/angular-animate.min.js [36m304 [0m18.310 ms - -[0m
+[0mGET /bower_components/angular/angular.min.js [36m304 [0m18.286 ms - -[0m
+[0mGET /bower_components/jquery/dist/jquery.min.js [36m304 [0m18.457 ms - -[0m
+[0mGET /bower_components/angular-cookies/angular-cookies.min.js [36m304 [0m1.539 ms - -[0m
+[0mGET /bower_components/angular-resource/angular-resource.min.js [36m304 [0m8.779 ms - -[0m
+[0mGET /bower_components/angular-route/angular-route.min.js [36m304 [0m9.684 ms - -[0m
+[0mGET /bower_components/angular-sanitize/angular-sanitize.min.js [36m304 [0m8.879 ms - -[0m
+[0mGET /bower_components/angular-touch/angular-touch.min.js [36m304 [0m9.116 ms - -[0m
+[0mGET /bower_components/angular-slider/build/angular-slider.min.js [36m304 [0m9.369 ms - -[0m
+[0mGET /bower_components/spin.js/spin.min.js [36m304 [0m3.615 ms - -[0m
+[0mGET /bower_components/angular-spinner/angular-spinner.min.js [36m304 [0m14.053 ms - -[0m
+[0mGET /bower_components/angular-socket-io/socket.min.js [36m304 [0m10.550 ms - -[0m
+[0mGET /bower_components/underscore/underscore.js [36m304 [0m7.797 ms - -[0m
+[0mGET /bower_components/jquery-ui/jquery-ui.min.js [36m304 [0m7.683 ms - -[0m
+[0mGET /bower_components/angular-ui-sortable/sortable.min.js [36m304 [0m6.574 ms - -[0m
+[0mGET /scripts/app.js [36m304 [0m3.094 ms - -[0m
+[0mGET /scripts/controllers/main.js [36m304 [0m4.360 ms - -[0m
+[0mGET /views/main.html [36m304 [0m1.429 ms - -[0m
+[0mGET /images/Raspberry_Pi.png [36m304 [0m4.427 ms - -[0m
+a user connected @ /#7D0jKSVG0tPgyMDkAAAA
+[0mGET /bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 [36m304 [0m14.086 ms - -[0m
+[0mGET /favicon.ico [32m200 [0m11.513 ms - 1150[0m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node app.js`[39m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node app.js`[39m
 Web-Terminal running at http://localhost:8088/terminal
 [tty.js] Listening on port 8000.
-a user connected @ /#HRszZRFW4Y7IkcoEAAAA
-[tty.js] pi Session pi created.
+[0mGET / [36m304 [0m30.726 ms - -[0m
+[0mGET /bower_components/bootstrap/dist/css/bootstrap.css [36m304 [0m20.733 ms - -[0m
+[0mGET /styles/main.css [36m304 [0m21.627 ms - -[0m
+[0mGET /bower_components/jquery/dist/jquery.min.js [36m304 [0m23.930 ms - -[0m
+[0mGET /bower_components/angular/angular.min.js [36m304 [0m23.902 ms - -[0m
+[0mGET /bower_components/bootstrap/dist/js/bootstrap.min.js [36m304 [0m21.777 ms - -[0m
+[0mGET /bower_components/angular-animate/angular-animate.min.js [36m304 [0m20.936 ms - -[0m
+[0mGET /bower_components/angular-cookies/angular-cookies.min.js [36m304 [0m1.556 ms - -[0m
+[0mGET /bower_components/angular-resource/angular-resource.min.js [36m304 [0m5.056 ms - -[0m
+[0mGET /bower_components/angular-route/angular-route.min.js [36m304 [0m7.239 ms - -[0m
+[0mGET /bower_components/angular-sanitize/angular-sanitize.min.js [36m304 [0m11.362 ms - -[0m
+[0mGET /bower_components/angular-touch/angular-touch.min.js [36m304 [0m10.633 ms - -[0m
+[0mGET /bower_components/angular-slider/build/angular-slider.min.js [36m304 [0m10.076 ms - -[0m
+[0mGET /bower_components/spin.js/spin.min.js [36m304 [0m10.652 ms - -[0m
+[0mGET /bower_components/angular-spinner/angular-spinner.min.js [36m304 [0m7.418 ms - -[0m
+[0mGET /bower_components/angular-socket-io/socket.min.js [36m304 [0m7.429 ms - -[0m
+[0mGET /bower_components/underscore/underscore.js [36m304 [0m3.341 ms - -[0m
+[0mGET /bower_components/jquery-ui/jquery-ui.min.js [36m304 [0m4.923 ms - -[0m
+[0mGET /bower_components/angular-ui-sortable/sortable.min.js [36m304 [0m3.878 ms - -[0m
+[0mGET /scripts/app.js [36m304 [0m5.390 ms - -[0m
+[0mGET /scripts/controllers/main.js [36m304 [0m10.041 ms - -[0m
+[0mGET /views/main.html [36m304 [0m1.872 ms - -[0m
+[0mGET /images/Raspberry_Pi.png [36m304 [0m2.854 ms - -[0m
+a user connected @ /#S_zHKHBd_dKn6BFdAAAA
+[0mGET /bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 [36m304 [0m10.707 ms - -[0m
+[0mGET /favicon.ico [32m200 [0m9.814 ms - 1150[0m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node app.js`[39m
+Web-Terminal running at http://localhost:8088/terminal
+[tty.js] Listening on port 8000.
+a user connected @ /#rhWq0y-QlOSDvIamAAAA
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node app.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node app.js`[39m
+Web-Terminal running at http://localhost:8088/terminal
+[tty.js] Listening on port 8000.
+a user connected @ /#sr52xNrgRCoRzo12AAAA
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node app.js`[39m
+Web-Terminal running at http://localhost:8088/terminal
+[tty.js] Listening on port 8000.
+[0mGET / [36m304 [0m32.095 ms - -[0m
+[0mGET /bower_components/bootstrap/dist/css/bootstrap.css [36m304 [0m15.010 ms - -[0m
+[0mGET /bower_components/jquery/dist/jquery.min.js [36m304 [0m14.909 ms - -[0m
+[0mGET /bower_components/angular/angular.min.js [36m304 [0m15.776 ms - -[0m
+[0mGET /bower_components/bootstrap/dist/js/bootstrap.min.js [36m304 [0m16.466 ms - -[0m
+[0mGET /bower_components/angular-animate/angular-animate.min.js [36m304 [0m16.563 ms - -[0m
+[0mGET /styles/main.css [36m304 [0m16.797 ms - -[0m
+[0mGET /bower_components/angular-cookies/angular-cookies.min.js [36m304 [0m1.437 ms - -[0m
+[0mGET /bower_components/angular-resource/angular-resource.min.js [36m304 [0m8.261 ms - -[0m
+[0mGET /bower_components/angular-route/angular-route.min.js [36m304 [0m7.396 ms - -[0m
+[0mGET /bower_components/angular-sanitize/angular-sanitize.min.js [36m304 [0m6.244 ms - -[0m
+[0mGET /bower_components/angular-touch/angular-touch.min.js [36m304 [0m6.139 ms - -[0m
+[0mGET /bower_components/angular-slider/build/angular-slider.min.js [36m304 [0m1.471 ms - -[0m
+[0mGET /bower_components/spin.js/spin.min.js [36m304 [0m2.118 ms - -[0m
+[0mGET /bower_components/angular-spinner/angular-spinner.min.js [36m304 [0m16.364 ms - -[0m
+[0mGET /bower_components/angular-socket-io/socket.min.js [36m304 [0m14.064 ms - -[0m
+[0mGET /bower_components/underscore/underscore.js [36m304 [0m12.546 ms - -[0m
+[0mGET /bower_components/jquery-ui/jquery-ui.min.js [36m304 [0m12.742 ms - -[0m
+[0mGET /bower_components/angular-ui-sortable/sortable.min.js [36m304 [0m13.703 ms - -[0m
+[0mGET /scripts/app.js [36m304 [0m1.625 ms - -[0m
+[0mGET /scripts/controllers/main.js [36m304 [0m3.607 ms - -[0m
+[0mGET /views/main.html [36m304 [0m1.349 ms - -[0m
+[0mGET /images/Raspberry_Pi.png [36m304 [0m1.826 ms - -[0m
+a user connected @ /#v8BttJLqBeGLJEzCAAAA
+[0mGET /bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 [36m304 [0m9.689 ms - -[0m
+[0mGET /favicon.ico [32m200 [0m29.177 ms - 1150[0m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node app.js`[39m
+Web-Terminal running at http://localhost:8088/terminal
+[tty.js] Listening on port 8000.
+[0mGET / [36m304 [0m39.311 ms - -[0m
+[0mGET /bower_components/bootstrap/dist/css/bootstrap.css [36m304 [0m18.349 ms - -[0m
+[0mGET /styles/main.css [36m304 [0m17.887 ms - -[0m
+[0mGET /bower_components/jquery/dist/jquery.min.js [36m304 [0m19.980 ms - -[0m
+[0mGET /bower_components/angular/angular.min.js [36m304 [0m20.370 ms - -[0m
+[0mGET /bower_components/bootstrap/dist/js/bootstrap.min.js [36m304 [0m20.083 ms - -[0m
+[0mGET /bower_components/angular-animate/angular-animate.min.js [36m304 [0m24.170 ms - -[0m
+[0mGET /bower_components/angular-resource/angular-resource.min.js [36m304 [0m4.939 ms - -[0m
+[0mGET /bower_components/angular-cookies/angular-cookies.min.js [36m304 [0m1.495 ms - -[0m
+[0mGET /bower_components/angular-route/angular-route.min.js [36m304 [0m6.242 ms - -[0m
+[0mGET /bower_components/angular-sanitize/angular-sanitize.min.js [36m304 [0m5.858 ms - -[0m
+[0mGET /bower_components/angular-touch/angular-touch.min.js [36m304 [0m6.254 ms - -[0m
+[0mGET /bower_components/angular-slider/build/angular-slider.min.js [36m304 [0m10.625 ms - -[0m
+[0mGET /bower_components/spin.js/spin.min.js [36m304 [0m10.749 ms - -[0m
+[0mGET /bower_components/underscore/underscore.js [36m304 [0m10.913 ms - -[0m
+[0mGET /bower_components/jquery-ui/jquery-ui.min.js [36m304 [0m11.473 ms - -[0m
+[0mGET /bower_components/angular-ui-sortable/sortable.min.js [36m304 [0m2.917 ms - -[0m
+[0mGET /bower_components/angular-spinner/angular-spinner.min.js [36m304 [0m2.714 ms - -[0m
+[0mGET /bower_components/angular-socket-io/socket.min.js [36m304 [0m10.306 ms - -[0m
+[0mGET /scripts/app.js [36m304 [0m6.050 ms - -[0m
+[0mGET /scripts/controllers/main.js [36m304 [0m2.496 ms - -[0m
+[0mGET /views/main.html [36m304 [0m2.474 ms - -[0m
+[0mGET /images/Raspberry_Pi.png [36m304 [0m1.883 ms - -[0m
+a user connected @ /#rLPRc_dSwCD7WGcsAAAA
+[0mGET /bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 [36m304 [0m9.723 ms - -[0m
+[0mGET /favicon.ico [32m200 [0m30.344 ms - 1150[0m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node app.js`[39m
+Web-Terminal running at http://localhost:8088/terminal
+[tty.js] Listening on port 8000.
+a user connected @ /#CSV2trHXQpLm6ulMAAAA
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node app.js`[39m
+Web-Terminal running at http://localhost:8088/terminal
+[tty.js] Listening on port 8000.
+a user connected @ /#c2dz6GUydDlLbaF2AAAA

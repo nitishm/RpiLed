@@ -1,78 +1,164 @@
+<img class="col-xs-offset-5 col-xs-2" src="./images/hourglass.svg" alt="HTML5 Icon" ng-if="firstLoad">
+<div ng-if="!firstLoad">
 <div class="jumbotron">
-  <div class="container">
-    <img src="images/Raspberry_Pi.png" class="img-responsive" alt="Image" height="100" width="100" style="display:block;margin:auto;">
+  <div class="container-fluid">
+    <img src="images/Raspberry_Pi.png" class="img-responsive" alt="Image" height="50" width="50" style="display:block;margin:auto;">
     <h2><span class="glyphicon glyphicon-music" aria-hidden="true"></span> RasPlayer <span class="glyphicon glyphicon-music" aria-hidden="true"></span></h2>
-    <h3 class="lead" ng-show="isPlaying"> [ Now Playing : <em>{{currentSong}}</em> ]</h3>
-    <h3 class="lead">Volume {{volume}}</h3>
-    <div ng-show="isPlaying">
-      <div class="btn-group">
-        <button type="button" class="btn btn-lg btn-danger" ng-click="stopSong()"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span></button>
-        <button type="button" class="btn btn-lg btn-info" ng-click="volDnSong()"><span class="glyphicon glyphicon-volume-down" aria-hidden="true"></span></button>
-        <button type="button" class="btn btn-lg btn-primary" ng-click="volUpSong()"><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span></button>
+    <br/>
+    <div class="well well-sm">
+      <div ng-show="isPlaying">
+        <hr/>
+        <h3 class="panel-title text-center"><strong>{{currentSong}}</strong></h3>
+        <h3 class="panel-title text-center" ng-show="currentAlbum"><small>{{currentAlbum}}</small></h3>
+        <h3 class="panel-title text-center" ng-show="currentArtist"><small>{{currentArtist}}</small></h3>
+        <hr/>
+      </div>
+      <h3 class="panel-title text-center" ng-hide="isPlaying">Stopped</h3>
+      <div class="row" style="padding: 10px;" ng-hide="!isPlaying && !isPaused">
+        <div class="btn-group">
+          <button type="button" class="btn btn-xs btn-danger" ng-click="stopSong()" ng-hide="!isPlaying"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span></button>
+          <button ng-hide="!isPlaying" type="button" class="btn btn-xs btn-success" ng-click="pauseSong()"><span ng-if="!isPaused" class="glyphicon glyphicon-pause" aria-hidden="true"></span><span ng-if="isPaused" class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+          <button type="button" class="btn btn-xs btn-info" ng-click="startPlaylist()" ng-show="playlist.length && isPlaylist"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
+        </div>
+      </div>
+      <div ng-if="isPlaying && !isFm">
+        <small>Streamed {{progress}}%</small>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+          </div>
+        </div>
       </div>
     </div>
-    <!--     <h3><span class="label" ng-class="(pin.status)?'label-success':'label-danger'">GPIO {{pin.id}}</span></h3>
-  -->  
-  </div>
-</div>
-<!-- <div class="row">
-  <div class="form-group col-sm-6">
-    <label for="input" class="control-label">GPIO Pin Number :</label>
-    <div>
-      <select name="" id="input" class="form-control" ng-model="pin.id" required="required">
-        <option value="{{id}}" ng-repeat="id in gpioPins">{{id}}</option>
-      </select>
+    <p class="lead">Volume {{volume}}</p>
+    <div class="progress">
+      <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="{{volume}}" aria-valuemin="0" aria-valuemax="100" style="width: {{volume}}%;">
+      </div>
     </div>
-  </div>
-  <div class="form-group col-sm-6" ng-if="pin.id">
-    <label for="input" class="control-label">GPIO Pin Mode :</label>
-    <div>
-      <select name="" id="input" class="form-control" ng-model="pin.mode" required="required">
-        <option value="{{mode}}" ng-repeat="mode in gpioModes">{{mode}}</option>
-      </select>
+    <div class="row" style="padding: 10px;">
+      <div class="btn-group row">
+        <button type="button" class="btn btn-xs btn-info" ng-disabled="volume === 0" ng-click="volDnSong()"><span class="glyphicon glyphicon-volume-down" aria-hidden="true"></span></button>
+        <button type="button" class="btn btn-xs btn-danger" ng-disabled="volume === 0" ng-click="volMuteSong()"><span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span></button>
+        <button type="button" class="btn btn-xs btn-primary" ng-disabled="volume === 100" ng-click="volUpSong()"><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span></button>
+      </div>
     </div>
   </div>
 </div>
-<br/>
-<div class="row" ng-if="pin.mode && pin.id">
-  <span class="col-lg-3" ng-if="pin.mode === 'output'"></span>
-  <div class="col-lg-6" ng-if="pin.mode === 'output'">
-    <label for="toggle">
-      <h3>Toggle : <span class="label" ng-class="(pin.status)?'label-success':'label-danger'">GPIO {{pin.id}}</span>
-      </h3>
-    </label>
-    <div class="row" id="toggle">
-      <button type="button" class="btn btn-success btn-block" ng-click="toggleLed(1)">On</button>
-      <button type="button" class="btn btn-danger btn-block" ng-click="toggleLed(0)">Off</button>
+<div class="row">
+  <div class="container-fluid col-lg-6" id="songs">
+    <p class="lead" ng-show="loading"><img src="./images/hourglass.svg" alt="HTML5 Icon" style="width:128px;height:128px;"></p>
+    <div class="panel panel-default" ng-hide="loading">
+      <div class="panel-heading">
+        <h3 class="panel-title text-center">
+        Songs
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for song ..." ng-model="filter">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button" ng-click="filter = ''">Clear!</button>
+          </span>
+        </div>
+        <br/>
+        <div dir-paginate="song in songs | orderBy : song | filter : filter | itemsPerPage: 25" pagination-id="songsPage">
+          <button class="btn btn-sm col-xs-10 col-lg-11" ng-class="((currentSong === song) && isPlaying) ? 'btn-primary' : 'btn-default'" ng-click=playSong(song) style="white-space: normal;" title="{{song}}">{{song | limitTo:45}}</button>
+          <button type="button" class="btn btn-default btn-sm col-xs-2 col-lg-1" ng-click="addToPlaylist(song)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+        </div>
+        <dir-pagination-controls pagination-id="songsPage"></dir-pagination-controls>
+      </div>
+    </div>
+    <div class="panel panel-default" ng-hide="loading">
+      <div class="panel-heading">
+        <h3 class="panel-title text-center">
+        Radio
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for station..." ng-model="fmFilter">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button" ng-click="fmFilter = ''">Clear!</button>
+          </span>
+        </div>
+        <br/>
+        <dir-pagination-controls pagination-id="fmPage"></dir-pagination-controls>
+        <button class="btn btn-sm btn-block" ng-class="(currentFm == fm) ? 'btn-primary' : 'btn-default'" ng-click=playSong(fm) dir-paginate="fm in fms | orderBy : fm | filter : fmFilter | itemsPerPage: 15" pagination-id="fmPage" style="white-space: normal;" title="{{fm}}">{{fm}}</button>
+      </div>
     </div>
   </div>
-  <span class="col-lg-3" ng-if="pin.mode === 'pwm'"></span>
-  <div class="col-lg-6" ng-if="pin.mode === 'pwm'">
-    <label for="pwm"><h3>Pwm : <span class="label" ng-class="(pin.status)?'label-success':'label-danger'">GPIO {{pin.id}}</span> <span class="label label-primary">{{pin.pwm}}%</span></h3></label>
-    <div class="row" id="pwm">
-      <input id="slider1" type="range" min="0" max="100" step="5" ng-model="pin.pwm" ng-click="update()"/>
+  <div class="container-fluid col-lg-6" id="radio">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title text-center">
+        Playlist
+        <span>
+          <div class="btn-group pull-right" ng-if="playlist.length">
+            <button type="button" class="btn btn-primary btn-sm" ng-click="startPlaylist()"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
+            <button type="button" class="btn btn-danger btn-sm" ng-click="clearPlaylist()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+            <button type="button" class="btn btn-info btn-sm" ng-click="shufflePlaylist()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+          </div>
+        </span>
+        <div class="clearfix"></div>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="alert alert-warning" role="alert" ng-if="!playlist.length">Add songs to playlist by clicking on the <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> icon</div>
+        <div ng-repeat="item in playlist track by $index">
+          <button type="button" class="btn btn-default btn-sm col-xs-10 col-lg-11" ng-click="playSong(item)" title="{{item}}">{{item | limitTo:45}}</button>
+          <button type="button" class="btn btn-default btn-sm col-xs-2 col-lg-1" ng-click="removeFromPlaylist(item)" ng-show="playlist.length"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<hr/> -->
-<!-- <div class="row" id="fm" style="margin: 20px;padding-left: 20px;padding-right: 20px;">
-    <h3>FM</h3>
-    <button class="btn btn-md btn-block" ng-class="(fmPlaying) ? 'btn-primary' : 'btn-default'" ng-click=playSong('fm.dubai') style="white-space: normal;">Dubai FM</button>
-    <button class="btn btn-md btn-block" ng-class="(fmPlaying) ? 'btn-primary' : 'btn-default'" ng-click=playSong('fm.hungama') style="white-space: normal;">Hungama FM</button>
-</div> -->
-<div class="row" id="player" style="margin: 20px;padding-left: 20px;padding-right: 20px;">
-  <h3 ng-show="loading">Loading playlist ... </h3>
-  <h3 ng-hide="loading">FM</h3>
-  <button class="btn btn-md btn-block" ng-class="(currentFm == fm) ? 'btn-primary' : 'btn-default'" ng-click=playSong(fm) ng-repeat="fm in fms | lowercase" style="white-space: normal;">{{fm}}</button>  
-  <h3 ng-hide="loading">Songs</h3>
-  <button class="btn btn-md btn-block" ng-class="(currentSong == song) ? 'btn-primary' : 'btn-default'" ng-click=playSong(song) ng-repeat="song in songs | lowercase" style="white-space: normal;">{{song}}</button>
-</div>
-<div class="hidden-xs">
+<div class="hidden-xs row" ng-init="ttyHide = 0">
   <hr/>
-  <h3>Terminal Emulater - TTY</h3>
+  <h3>Terminal Emulater - TTY</h3><button type="button" class="btn btn-default" ng-click="ttyHide = !ttyHide"><span ng-if="ttyHide">Hide</span><span ng-if="!ttyHide">Show</span></button>
   <hr/>
-  <div class="row">
-    <iframe src="http://10.0.0.223:8000/" width="750" height="400"></iframe>
+  <div class="row" ng-if="ttyHide">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="http://10.0.0.223:8000/"></iframe>
+    </div>
   </div>
   <br/>
 </div>
+</div>
+<!-- <div class="row">
+<div class="form-group col-sm-6">
+  <label for="input" class="control-label">GPIO Pin Number :</label>
+  <div>
+    <select name="" id="input" class="form-control" ng-model="pin.id" required="required">
+      <option value="{{id}}" ng-repeat="id in gpioPins">{{id}}</option>
+    </select>
+  </div>
+</div>
+<div class="form-group col-sm-6" ng-if="pin.id">
+  <label for="input" class="control-label">GPIO Pin Mode :</label>
+  <div>
+    <select name="" id="input" class="form-control" ng-model="pin.mode" required="required">
+      <option value="{{mode}}" ng-repeat="mode in gpioModes">{{mode}}</option>
+    </select>
+  </div>
+</div>
+</div>
+<br/>
+<div class="row" ng-if="pin.mode && pin.id">
+<span class="col-lg-3" ng-if="pin.mode === 'output'"></span>
+<div class="col-lg-6" ng-if="pin.mode === 'output'">
+  <label for="toggle">
+    <h3>Toggle : <span class="label" ng-class="(pin.status)?'label-success':'label-danger'">GPIO {{pin.id}}</span>
+    </h3>
+  </label>
+  <div class="row" id="toggle">
+    <button type="button" class="btn btn-success btn-block" ng-click="toggleLed(1)">On</button>
+    <button type="button" class="btn btn-danger btn-block" ng-click="toggleLed(0)">Off</button>
+  </div>
+</div>
+<span class="col-lg-3" ng-if="pin.mode === 'pwm'"></span>
+<div class="col-lg-6" ng-if="pin.mode === 'pwm'">
+  <label for="pwm"><h3>Pwm : <span class="label" ng-class="(pin.status)?'label-success':'label-danger'">GPIO {{pin.id}}</span> <span class="label label-primary">{{pin.pwm}}%</span></h3></label>
+  <div class="row" id="pwm">
+    <input id="slider1" type="range" min="0" max="100" step="5" ng-model="pin.pwm" ng-click="update()"/>
+  </div>
+</div>
+</div> -->

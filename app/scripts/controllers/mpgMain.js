@@ -16,7 +16,7 @@ angular.module('webappApp')
           else
             return str;
         }
-        $scope.firstLoad = true;
+
         $scope.loading = true;
 
         $scope.isPlaying = false;
@@ -35,32 +35,23 @@ angular.module('webappApp')
             $scope.volume = data.volume;
             $scope.isPlaying = data.playing;
             $scope.isPaused = data.paused;
-            if(!data.fm)
-                $scope.currentSong = data.file;
+            $scope.currentSong = data.file;
             if(data.fm) {
                 $scope.currentFm = data.file;
                 $scope.isFm = true;
             } else {
                 $scope.isFm = false;
             }
-            $scope.playlist = data.playlist;
-            $scope.isPlaylist = data.isPlaylist;
-            $scope.firstLoad = false;
         });
 
         socket.on('player:info', function(data) {
-            // console.log(data);
+            console.log(data);
             if(data.title) {
                 $scope.currentSong = data.title;
             } 
             $scope.currentArtist = data.artist;
             $scope.currentAlbum = data.album;
             $scope.progress = data.completed;
-        });
-
-        socket.on('player:next', function() {
-            if(isPlaylist)
-                startPlaylist();
         });
 
         // Functions
@@ -73,14 +64,12 @@ angular.module('webappApp')
         $scope.volMuteSong = volMuteSong;
         
         $scope.addToPlaylist = addToPlaylist;
-        $scope.removeFromPlaylist = removeFromPlaylist;
         $scope.startPlaylist = startPlaylist;
         $scope.clearPlaylist = clearPlaylist;
         $scope.shufflePlaylist = shufflePlaylist;
-        $scope.updatePlaylist = updatePlaylist;
 
-        function playSong(song, isPlaylist) {
-            socket.emit('player:play', {song:song, playlist:isPlaylist});
+        function playSong(song) {
+            socket.emit('player:play', song);
             $scope.isPaused = false;
         }
 
@@ -108,35 +97,20 @@ angular.module('webappApp')
 
         function addToPlaylist(song) {
             $scope.playlist.unshift(song);
-            updatePlaylist();
-        }
-
-        function removeFromPlaylist(song) {
-            var index = $scope.playlist.indexOf(song);
-            if (index >= 0) {
-                $scope.playlist.splice( index, 1 );
-                updatePlaylist();
-            }
+            // updatePlaylist(socket, $scope.playlist);
         }
 
         function startPlaylist() {
-            var next = $scope.playlist.pop();
-            console.log("starting playlist with song : " + next);
-            playSong(next, true);
-            updatePlaylist();
+
         }
 
         function clearPlaylist() {
           $scope.playlist = [];
-          updatePlaylist();
+          // updatePlaylist(socket, $scope.playlist);
         }
 
         function shufflePlaylist() {
           $scope.playlist = _.shuffle($scope.playlist);
-          updatePlaylist();
-        }
-
-        function updatePlaylist() {
-            socket.emit('playlist:update', $scope.playlist);
+          // updatePlaylist(socket, $scope.playlist);
         }
     });
