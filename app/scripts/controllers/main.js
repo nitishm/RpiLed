@@ -59,7 +59,7 @@ angular.module('webappApp')
         });
 
         socket.on('player:next', function() {
-            if(isPlaylist)
+            if($scope.isPlaylist)
                 startPlaylist();
         });
 
