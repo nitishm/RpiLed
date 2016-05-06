@@ -98,10 +98,16 @@ module.exports = function(io) {
     });
 
     player.on('end', function() {
-        io.to(connectedClients[0]).emit('player:next');        
-        current.playing = false;
-        current.paused = false;
-        updateStats(io);
+        if(connectedClients.length && current.playlist.length) {
+            io.to(connectedClients[0]).emit('player:next');   
+            current.playing = false;
+            current.paused = false;
+            updateStats(io);
+        } else {
+            if(current.playlist.length > 0) {
+                player.play('/home/pi/webapp/songs/' + current.playlist.pop());
+            }
+        }
     });
 
     player.on('volume', function(data) {
@@ -110,7 +116,8 @@ module.exports = function(io) {
 
     player.on('info', function(data) {
         // console.log(data);
-        io.sockets.emit('player:info', data);
+        if(connectedClients.length)
+            io.sockets.emit('player:info', data);
     });
 
     io.on('connection', function(socket) {
